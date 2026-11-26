@@ -18,14 +18,6 @@ EOT
   validation {
     condition = alltrue([
       for k, v in var.portal_dashboard_lookup : (
-        v.name == null || (length(v.name) <= 160)
-      )
-    ])
-    error_message = "[from validate.DashboardName: invalid when len(value) > 160]"
-  }
-  validation {
-    condition = alltrue([
-      for k, v in var.portal_dashboard_lookup : (
         v.display_name == null || (length(v.display_name) > 0)
       )
     ])
